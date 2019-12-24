@@ -77,20 +77,7 @@ class OrderLineItemWidget extends WidgetBase {
       '#attributes' => ['class' => ['gst']],
     ];
 
-    $discount = $items->get($delta)->get('discount')->getValue();
-    $discount = (!is_null($discount) ? $discount : 0);
-    $elements['discount'] = [
-      '#type' => 'number',
-      '#title' => t('Discount'),
-      '#default_value' => $discount,
-      '#size' => 2,
-      '#scale' => 2,
-      '#step' => 0.01,
-      '#maxlength' => 4,
-      '#attributes' => ['class' => ['quantity']],
-    ];
-
-	$elements['base_price'] = [
+  $elements['base_price'] = [
       '#type' => 'number',
       '#title' => t('Price before Tax'),
       '#default_value' => $quantity * $amount,
@@ -105,7 +92,7 @@ class OrderLineItemWidget extends WidgetBase {
     $elements['total_price'] = [
       '#type' => 'number',
       '#title' => t('Price with Tax/Discount'),
-      '#default_value' => ($quantity * $amount * (1 - $discount * (0.01))) * (1 + $gst * (0.01)),
+      '#default_value' => $quantity * $amount * (1 + $gst * (0.01)),
       '#size' => 10,
       '#scale' => 2,
       '#step' => 0.01,

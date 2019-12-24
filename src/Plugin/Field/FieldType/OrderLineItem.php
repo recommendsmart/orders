@@ -41,10 +41,6 @@ class OrderLineItem extends FieldItemBase {
           'type' => 'float',
           'not null' => FALSE,
         ],
-		   'discount' => [
-          'type' => 'float',
-          'not null' => FALSE,
-        ],
       ),
     );
   }
