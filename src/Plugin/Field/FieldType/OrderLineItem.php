@@ -69,9 +69,6 @@ class OrderLineItem extends FieldItemBase {
     $properties['gst'] = DataDefinition::create('float')
       ->setLabel(t('Item gst'));
 
-	$properties['discount'] = DataDefinition::create('float')
-      ->setLabel(t('Item discount'));
-
     return $properties;
   }
 
